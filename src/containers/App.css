@@ -1,0 +1,12 @@
+@font-face {
+  font-family: "BallpointSignature";
+  src: url("./fonts/BallpointSignature-L3J9W.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1 {
+  font-family: "BallpointSignature";
+  font-weight: 200;
+  color: darkgreen;
+}
