@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/porto/static/css/main.b9b614ff.chunk.css",
+    "main.js": "/porto/static/js/main.31e715fe.chunk.js",
+    "main.js.map": "/porto/static/js/main.31e715fe.chunk.js.map",
+    "runtime-main.js": "/porto/static/js/runtime-main.a211ec4b.js",
+    "runtime-main.js.map": "/porto/static/js/runtime-main.a211ec4b.js.map",
+    "static/css/2.3c03f26f.chunk.css": "/porto/static/css/2.3c03f26f.chunk.css",
+    "static/js/2.4044ce23.chunk.js": "/porto/static/js/2.4044ce23.chunk.js",
+    "static/js/2.4044ce23.chunk.js.map": "/porto/static/js/2.4044ce23.chunk.js.map",
+    "index.html": "/porto/index.html",
+    "precache-manifest.01b7d2cd3831e5faeb8e65e437e41f7c.js": "/porto/precache-manifest.01b7d2cd3831e5faeb8e65e437e41f7c.js",
+    "service-worker.js": "/porto/service-worker.js",
+    "static/css/2.3c03f26f.chunk.css.map": "/porto/static/css/2.3c03f26f.chunk.css.map",
+    "static/css/main.b9b614ff.chunk.css.map": "/porto/static/css/main.b9b614ff.chunk.css.map",
+    "static/js/2.4044ce23.chunk.js.LICENSE.txt": "/porto/static/js/2.4044ce23.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/porto/static/media/BallpointSignature-L3J9W.74d8aea7.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a211ec4b.js",
+    "static/css/2.3c03f26f.chunk.css",
+    "static/js/2.4044ce23.chunk.js",
+    "static/css/main.b9b614ff.chunk.css",
+    "static/js/main.31e715fe.chunk.js"
+  ]
+}
