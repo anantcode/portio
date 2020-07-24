@@ -4,30 +4,40 @@ import Searchbox from "../components/Searchbox";
 import "./App.css";
 import Scroll from "../components/Scroll";
 
+import { setSearchField } from "../actions";
+import { connect } from "react-redux";
+
+const mapStateToProps = (state) => {
+  return {
+    searchField: state.searchField,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onSearchChange: (event) => dispatch(setSearchField(event.target.value)),
+  };
+};
+
 class App extends Component {
   constructor() {
     super();
     this.state = {
       people: [],
-      searchField: "",
     };
   }
 
-  onInputChange = (event) => {
-    this.setState({ searchField: event.target.value });
-  };
-
   componentDidMount() {
+    console.log(this.props);
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((res) => res.json())
       .then((users) => this.setState({ people: users }));
   }
 
   render() {
+    const { searchField, onInputChange } = this.props;
     const filteredPeople = this.state.people.filter((item) => {
-      return item.name
-        .toLowerCase()
-        .includes(this.state.searchField.toLocaleLowerCase());
+      return item.name.toLowerCase().includes(searchField.toLocaleLowerCase());
     });
 
     if (this.state.people.length === 0) {
@@ -36,10 +46,7 @@ class App extends Component {
       return (
         <div className="tc">
           <h1 className="f-subheadline lh-solid white ma2 pa3">People List</h1>
-          <Searchbox
-            searchField={this.state.searchField}
-            inputChange={this.onInputChange}
-          />
+          <Searchbox searchField={searchField} inputChange={onInputChange} />
           <Scroll>
             <Cardlist people={filteredPeople} />
           </Scroll>
@@ -49,4 +56,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
