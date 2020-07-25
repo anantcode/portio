@@ -4,43 +4,38 @@ import Searchbox from "../components/Searchbox";
 import "./App.css";
 import Scroll from "../components/Scroll";
 
-import { setSearchField } from "../actions";
+import { setSearchField, requestRobots } from "../actions";
 import { connect } from "react-redux";
 
 const mapStateToProps = (state) => {
   return {
-    searchField: state.searchField,
+    searchField: state.searchRobots.searchField,
+    robots: state.requestRobots.robots,
+    isPending: state.requestRobots.isPending,
+    error: state.requestRobots.error,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     onSearchChange: (event) => dispatch(setSearchField(event.target.value)),
+    onRequestRobots: () => dispatch(requestRobots()),
   };
 };
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      people: [],
-    };
-  }
-
   componentDidMount() {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((res) => res.json())
-      .then((users) => this.setState({ people: users }));
+    this.props.onRequestRobots();
   }
 
   render() {
-    const { searchField, onSearchChange } = this.props;
+    const { searchField, onSearchChange, robots, isPending } = this.props;
 
-    const filteredPeople = this.state.people.filter((item) => {
+    const filteredPeople = robots.filter((item) => {
       return item.name.toLowerCase().includes(searchField.toLowerCase());
     });
 
-    if (this.state.people.length === 0) {
+    if (isPending) {
       return <h1>Loading...</h1>;
     } else {
       return (
