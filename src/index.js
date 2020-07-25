@@ -10,8 +10,8 @@ import { searchRobots } from "./reducers";
 
 import tachyons from "tachyons";
 
-const logger = createLogger();
-const store = createStore(searchRobots, applyMiddleware(logger));
+//const logger = createLogger();
+const store = createStore(searchRobots);
 
 ReactDOM.render(
   <React.StrictMode>

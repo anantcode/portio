@@ -28,16 +28,16 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props);
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((res) => res.json())
       .then((users) => this.setState({ people: users }));
   }
 
   render() {
-    const { searchField, onInputChange } = this.props;
+    const { searchField, onSearchChange } = this.props;
+
     const filteredPeople = this.state.people.filter((item) => {
-      return item.name.toLowerCase().includes(searchField.toLocaleLowerCase());
+      return item.name.toLowerCase().includes(searchField.toLowerCase());
     });
 
     if (this.state.people.length === 0) {
@@ -46,7 +46,7 @@ class App extends Component {
       return (
         <div className="tc">
           <h1 className="f-subheadline lh-solid white ma2 pa3">People List</h1>
-          <Searchbox searchField={searchField} inputChange={onInputChange} />
+          <Searchbox searchField={searchField} inputChange={onSearchChange} />
           <Scroll>
             <Cardlist people={filteredPeople} />
           </Scroll>
